@@ -1,0 +1,311 @@
+/* =========================================
+   STYLE.CSS - VERSI RAPAT (AGRESIF)
+   ========================================= */
+
+:root {
+  --bg-color: #ffffff;
+  --line-color: #e5e5f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dancing Script", cursive;
+  background-color: var(--bg-color);
+  background-image:
+    linear-gradient(var(--line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; /* Padding body dikurangi biar gak makan tempat */
+  overflow-x: hidden;
+}
+
+.card {
+  width: 95%;
+  max-width: 1200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- SVG SETUP --- */
+.handwriting-container {
+  width: 100%;
+  height: auto;
+  line-height: 0;
+  position: relative;
+}
+
+.handwriting-text {
+  font-family: "Dancing Script", cursive;
+  font-size: 10rem;
+  font-weight: bold;
+  fill: transparent;
+  stroke: black;
+  stroke-width: 2px;
+  stroke-dasharray: 5000;
+  stroke-dashoffset: 5000;
+  animation:
+    drawStroke 9s ease-in-out forwards,
+    fillIn 1s ease-in-out 3s forwards;
+}
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fillIn {
+  to {
+    fill: black;
+    stroke: transparent;
+  }
+}
+
+/* Kue Halaman Utama */
+.cake-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px; /* Jarak antara foto dengan tulisan "Hello" */
+
+  /* Opsional: Animasi muncul pelan dari atas */
+  opacity: 0;
+  transform: translateY(-25px);
+  animation: fadeDown 1s ease-out 0.3s forwards;
+}
+.main-cake {
+  /* Ukuran di Laptop */
+  max-width: 350px; /* Lebar maksimal biar gak kegedean */
+  width: 85%; /* Lebar fleksibel mengikuti layar */
+  height: auto; /* Tinggi otomatis biar gak gepeng */
+}
+
+@keyframes fadeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- PENGATURAN JARAK LAPTOP (TARIKAN KUAT) --- */
+
+/* Judul Pertama: Pastikan dia di layer paling atas */
+.judul-satu {
+  z-index: 10;
+  margin-bottom: 25px;
+}
+
+/* Judul Kedua: DITARIK JAUH KE ATAS */
+.judul-dua {
+  /* Ini angka kuncinya. Saya perbesar jadi -160px biar nempel banget */
+  margin-top: -160px;
+  z-index: 5; /* Layer di bawah judul satu */
+  position: relative;
+}
+
+/* Paragraf Ucapan: DITARIK JAUH JUGA */
+.subtitle {
+  font-family: "Playpen Sans", cursive;
+  font-size: 1.5rem;
+  line-height: 1.4; /* Spasi baris dirapatkan */
+  color: #333;
+
+  /* Tarik ke atas mendekati judul dua */
+  margin-top: -50px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease-out 3s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* mail */
+/* MAIL ICON */
+
+.mail-container {
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeUp 1s ease-out 3.5s forwards;
+}
+
+#mailBtn {
+  display: inline-block;
+  color: #333;
+
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#mailBtn:hover {
+  transform: scale(1.2);
+}
+
+.feather-mail {
+  width: 30px;
+  height: 30px;
+}
+
+/* POPUP */
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.popup-content {
+  background: #222;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  width: 300px;
+}
+
+.popup-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.popup-content p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+#closeBtn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: white;
+  font-family: inherit;
+}
+
+#closeBtn:hover {
+  background: #ddd;
+}
+
+/* =========================================
+Buat responsive
+   ========================================= */
+@media (max-width: 1366px) {
+  html {
+    font-size: 84%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 60%;
+  } /* Font dasar dikecilkan di HP */
+  body {
+    align-items: flex-start !important; /* Ubah dari Center ke Start (Atas) */
+    padding-top: 20px !important; /* Jarak dari ujung atas layar (atur sesuai selera) */
+    min-height: 100vh;
+  }
+
+  /* Container utama */
+  .card {
+    width: 95%;
+    padding: 0px 5px;
+    margin: auto;
+    justify-content: flex-start;
+  }
+
+  .handwriting-container {
+    height: auto;
+  }
+
+  /* Judul */
+  .handwriting-text {
+    font-size: 12rem !important;
+    stroke-width: 1.5px;
+  }
+
+  /* Judul kedua */
+  .judul-dua {
+    margin-top: -80px !important;
+  }
+
+  /* Paragraf */
+  .subtitle {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 0px !important;
+    padding: 0 15px;
+  }
+
+  /* Container mail */
+  .mail-container {
+    margin-top: 50px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Icon mail */
+  #mailBtn,
+  .feather-mail {
+    position: static !important; /* matikan fixed/absolute */
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Popup */
+  .popup-content {
+    width: 90%;
+    max-width: 320px;
+    padding: 15px;
+  }
+
+  .popup-content img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .popup-content p {
+    font-size: 15px;
+  }
+
+  /* TAMBAHAN UNTUK KUE DI HP */
+  .main-cake {
+    max-width: 280px; /* Di HP maksimal lebarnya segini aja */
+  }
+
+  .cake-container {
+    margin-bottom: 20px; /* Jarak ke judul agak dirapatkan di HP */
+  }
+}

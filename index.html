@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ulang Tahun Natha</title>
+
+    <!-- fonts -->
+    <head>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+        rel="stylesheet"
+      />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap"
+        rel="stylesheet"
+      />
+
+      <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS STYLE -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <body>
+      <div class="card">
+        <div class="cake-container">
+          <img
+            src="../Ultah Natha/image/wewe.png"
+            alt="Kue Ulang Tahun"
+            class="main-cake"
+          />
+        </div>
+
+        <div class="handwriting-container judul-satu">
+          <svg viewBox="0 0 1500 400">
+            <text
+              x="50%"
+              y="50%"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              class="handwriting-text"
+            >
+              Hello Nathania
+            </text>
+          </svg>
+        </div>
+
+        <div class="handwriting-container judul-dua">
+          <svg viewBox="0 0 1500 400">
+            <text
+              x="50%"
+              y="50%"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              class="handwriting-text"
+            >
+              Selamat Ulang Tahun
+            </text>
+          </svg>
+        </div>
+
+        <p class="subtitle">
+          maafkan telat<br />sehat selalu nathh!! wish u all the best.<br />
+          selamat juga ya udah jadi sarjana hukum..anjay<br />
+          ciee udah beres kuliahnya jadi iri wkwkw<br />btw aku ada hidden
+          message, klik aja di bawah
+        </p>
+        <!-- Mail -->
+        <div class="mail-container">
+          <a
+            id="mailBtn"
+            onclick="
+              bukaSurat();
+              return false;
+            "
+          >
+            <i data-feather="mail"></i>
+          </a>
+        </div>
+      </div>
+    </body>
+
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- JavaScript -->
+    <script src="../Ultah Natha/js/script.js"></script>
+
+    <!-- POPUP -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <img src="../Ultah Natha/image/kue.jpeg" alt="Kue" />
+
+        <p>HAHAHA udah tua 😜<br />kidding hehe</p>
+
+        <button id="closeBtn">Tutup</button>
+      </div>
+    </div>
+  </body>
+</html>
